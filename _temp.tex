@@ -1,0 +1,76 @@
+\documentclass[11pt]{article}
+\usepackage{amssymb}
+\usepackage{amsmath,amscd,amsthm}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{pscyr}
+\usepackage{hyperref}
+\usepackage{indentfirst}
+\usepackage{slashed}
+%\usepackage{letltxmacro}
+\usepackage{mathtools}
+\usepackage{ulem}
+\usepackage{xcolor}
+%\thispagestyle{empty}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{comment}
+%\usepackage{times}
+\usepackage{tikz}
+\usepackage[all]{xy}
+\xyoption{tips}
+\SelectTips{lu}{10}
+ \usetikzlibrary{matrix,calc,arrows,shapes,snakes,positioning}
+
+\def\be{\numberwithin{equation}{section}\begin{eqnarray}}
+\def\ee{\end{eqnarray}}
+\def\trademark{{\hbox{\tiny TM}}}
+\def\dim{\textmd{dim} \hskip 3 pt}
+\def\p{\partial}
+\def\R{\Rightarrow}
+\def\ph{\varphi}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\theoremstyle{definition}
+\newtheorem{Def}[thm]{Definition}
+
+\setcounter{section}{-1}
+
+\newcommand{\que}[1]{\footnote{\textcolor[rgb]{0.38,0.69,0.82}{#1}}}
+
+\renewcommand\thefootnote{\textcolor[rgb]{0.38,0.69,0.82}{\arabic{footnote}}}
+
+
+\LetLtxMacro{\oldsqrt}{\sqrt} % makes all sqrts closed
+\renewcommand{\sqrt}[1][\ ]{%
+  \def\DHLindex{#1}\mathpalette\DHLhksqrt}
+\def\DHLhksqrt#1#2{%
+  \setbox0=\hbox{$#1\oldsqrt[\DHLindex]{#2\,}$}\dimen0=\ht0
+  \advance\dimen0-0.2\ht0
+  \setbox2=\hbox{\vrule height\ht0 depth -\dimen0}%
+  {\box0\lower0.71pt\box2}}
+
+%$\sqrt[a]{b} \quad \oldsqrt[a]{b}$
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%               SPACE FILLING SETTINGS               %%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textheight 23.5cm \textwidth 16.3cm
+%\voffset=-1.2in
+\voffset=-0.8in
+%\voffset= - 1.85in
+\hoffset= - 1.0in         % switch off for draft style
+\multlinegap=1.0in
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+)
+
+\end{document}
