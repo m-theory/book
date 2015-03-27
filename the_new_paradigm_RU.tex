@@ -358,6 +358,54 @@ $$Q_{\tau} = Q + \tau V_1 + \tau^2 V_2, \bar \p_{\tau} = \bar\p + \tau \mu_1 \p 
 
 \end{comment}
 
+\section{<<Русская>> квантовая теория поля}
+
+Будем рассматривать теорию поля с действием
+
+\be\label{RQFT} \int D\hat\Phi D\hat c D\hat c^* e^{\int (\alpha(\hat \Phi) d\hat \Phi + H(\hat \Phi) \hat c + \hat c^* d \hat c + f_{ab}^c \hat c_c^* \hat c^a \hat c^b)}. \ee
+
+Будем называть подынтегральное выражение в экспоненте <<master term>>.
+
+\subsection{0-мерный случай}
+
+Сначала рассмотрим 0-мерный случай --- т.е. $\hat \Phi$, $\hat c$, $\hat c^*$ принимают значения в точке. В 0-мерном случае дифференциал де Рама тривиален, и от master term остаётся \be\label{master_term} W(\hat \Phi, \hat c, \hat c^*) := H_k (\hat \Phi) \hat c^k + f^c_{ab} \hat c_c^* \hat c^a \hat c^b.\ee
+
+Основное уравнение (master equation) \que{почему это уравнение Маурера---Картана?} имеет вид \be\label{WW}\{W,W\} = 0.\ee Скобка $\{,\}$ в данном случае есть BV-скобка и означает \be\label{BV}\{a,b\} = \{a,b\}_{c} + \{a,b\}_{\Phi} = \frac{\p a}{\p c^i} \frac{\p b}{\p c_i^*} - \frac{\p b}{\p c^i} \frac{\p a}{\p c_i^*} + \{a,b\}_{\Phi},\ee $\{a,b\}_{\Phi}$ --- суперкоммутатор двух функций $a$ и $b$ от оператора $\Phi$ (т.е. в $\{a,b\}_{\Phi}$ никаких производных по $\hat\Phi$ не содержится).
+
+Прямым вычислением можно показать (мне удалось), что \be\label{Jacobi}\{f_{ab}^c \hat c_c^* \hat c^a \hat c^b, f_{de}^f \hat c_f^* \hat c^d \hat c^e\} = 0.\ee
+
+Поэтому master equation (\ref{WW}) приобретает вид $$\{W,W\} = \{H,H\} + 2 \{H,f\} = \hat c^a \hat c^b \{H_a (\hat \Phi), H_b (\hat \Phi)\} + 2 H_c (\hat \Phi) f_{ab}^c \hat c^a \hat c^b = 0.$$
+
+Теперь пусть master term имеет вид не (\ref{master_term}), а раскладывается в ряд по $\hat c$ ($\hat c^*$ пока что не включаем). Такой master term назовём буквой $P$.
+
+$$P(\hat \Phi, \hat c) = P_0 (\hat \Phi) + \hat c^a P_a (\hat \Phi) + \hat c^a \hat c^b P_{ab} (\hat \Phi) + \dots.$$ Тогда из master equation $\{P,P\} = 0$ получается большое количество уравнений; именно, $$\{P_0, P_0\} = 0,$$ $$\{P_a, P_0\} = 0,$$ \be \{P_a, P_b\} + 2 \{P_0, P_{ab}\} = 0,\ee и так далее. Заметим, что последнее из выписанных уравнений очень похоже на соотношение из интегрируемых систем: действительно, в случае интегрируемой иерархии $P_a$ --- интегралы движения и $\{P_a, P_b\} = 0$.
+
+\footnotesize{} Поиграться с формой действия --- количеством полей $c$. Выбирая разные $W$ и записывая для них мастер-уравнение, получить определение алгеброида Ли и $\infty$-представления. \normalsize{}
+
+Теперь добавим <<выходы>>: $\hat c^*$. Для начала рассмотрим линеаризацию: теперь master term имеет вид $$P(\hat \Phi, \hat c, \hat c^*) = F^{(0)}(\hat \Phi, \hat c) + F^{(1)} (\hat \Phi, \hat c) \hat c^*.$$
+
+Обобщая сказанное в окрестности (\ref{Jacobi}), согласно уравнению $L_{\infty}-$структуры (обобщенное тождество Якоби)\que{Какая в нём скобка --- полная $\{,\}$ или $\{,\}_{c}$?}, \be\label{F1F1}\{F^{(1)} (\hat \Phi, \hat c), F^{(1)} (\hat \Phi, \hat c)\} = 0.\ee
+
+Теперь пусть master term станет полным разложением в Тейлора по $\hat c^*$, и master equation примет вид \be \{ F^{(0)} + F^{(1)} + F^{(2)} + \dots, F^{(0)} + F^{(1)} + F^{(2)} + \dots\} = 0.\ee Нулевой член по $\hat c^*$ (<<теория представлений>>, т.к. нет операций, есть только объекты)\que{откуда в обоих этих уравнениях берутся члены вида $\{F^{(1)}, F^{(0)}\}$?}: $$\{F^{(0)}, F^{(0)}\} + 2 \{F^{(1)}, F^{(0)}\} = 0.$$ Первый член по $\hat c^*$ (<<алгебра>> над операдой): $$\{F^{(1)}, F^{(1)}\} + 2 \{F^{(2)}, F^{(0)}\} + 2 \{F^{(1)}, F^{(0)}\}= 0.$$
+
+\subsection{Случай произвольной размерности}
+
+Случай $\dim X = 0$ ($X$ --- таргет-пространство) полностью разобран. Теперь пусть $\dim X \neq 0$. В таком случае дифференциалы в экспоненте в (\ref{RQFT}) не умрут. Объединим поля $\hat \Phi$ и $\hat c$ в нечто единое; тогда master term примет вид $$\hat y^* \hat Q \hat y + W (\hat y^*, \hat y) \equiv S_Q + S_W.$$
+
+\textbf{Заявка}: \be\label{zayavka} \{S_Q + S_W, S_Q + S_W\} = 0 \Rightarrow  \{S_W, S_W\} = 0. \ee
+
+Попробуем доказать через определение (\ref{BV}). Если расписать всё в индексах\que{Вообще это странно, т.к. на семинаре у нас получался ноль, только если потребовать $Q^2 = 0$.}, $S_Q = y^*_i Q^i_j y^j,$ $$\{S_Q, S_Q\} = y^*_i Q^i_j Q^j_k y^k - Q^i_j y^j y^*_k Q^k_i = y^* Q^2 y - y^* Q^2 y = 0.$$
+
+(В этот момент мне уже окончательно надоело писать шляпки над операторами.)
+
+$$\{S_Q, S_W\} = \Big\{ \int\limits_X y^* (x) dy(x), \int\limits_Z W(y^* (z), y(z)) \Big\} = \int\limits_X \int\limits_Z \delta(x-z) \Big( - dy \frac{\p W}{\p y} - dy^* \frac{\p W}{\p y^*} \Big) = -\int\limits_X dW,$$ откуда видно, что если таргет --- многообразие без края, то $$\{S_Q, S_W\} = 0.$$
+
+Ура, утверждение (\ref{zayavka}) доказано.
+
+Теперь пусть $\dim X = 1$. Разложим поле $\Phi$ на компоненты, состоящие из 0- и 1-форм: $$\Phi = \Phi^{(0)} + \Phi^{(1)}.$$
+
+Почему мы не видим в реальном мире явлений с участием нечётных переменных? Потому что нужно не просто изучать мастер-уравнение, а верен следующий принцип: \be \boxed{\text{изучай мастер-уравнение @ интегрируй по лагранжевому многообразию}} \ee Лагранжево многообразие в данном случае как раз можно выбрать так, что получится $\Phi^{(1)} = 0.$
+
 
 \section{Новый взгляд на геометрию}
 \subsection{Собственно взгляд}
@@ -479,7 +527,7 @@ text depth=0.25ex]{
 Т.е. вот где основной объект принимает значения: $$I (\Sigma, \mu) \in V_1 \otimes ... \otimes V_n \otimes \Big( \mu(\Sigma)/\text{diff} \Big)$$
 
 и при этом есть единственная аксиома: что если эту поверхность разрезать, то
-$$I(\Sigma, \mu) = I(\Sigma_1, \mu) \circ I(\Sigma_2, \mu).$$
+\be\label{cutting_axiom}I(\Sigma, \mu) = I(\Sigma_2, \mu) \circ I(\Sigma_1, \mu).\ee
 
 Тензор энергии-импульса же можно вытащить из такой теории вариацией основного объекта по дифференциалу Бельтрами:
 
@@ -1363,7 +1411,11 @@ $$H\chi = \operatorname{Str}_{\Omega^{0,\bullet}} e^{-\tau_{\text{ш}} \{ \bar \
 
 \end{comment}
 
-\section{Концевич и теория деформаций}
+\section{Виттен, Концевич, теория деформаций}
+
+\subsection{Двумерные теории на диске и сфере}
+
+Будем рассматривать различные двумерные теории --- например, на диске или на сфере. Если объектом рассмотрения является теория на диске, внутренность диска называется словом bulk. Тогда рассматриваются диски с каким-то количеством отмеченных точек в bulk'е, каким-то количеством отмеченных точек на границе и одной точкой <<выхода>> на границе (там $\delta-$форма)\que{Пояснить смысл всего этого.}.
 
 \begin{center}
  \begin{tikzpicture}
@@ -1410,63 +1462,9 @@ cross/.default={6pt}}
 	\end{tikzpicture}
 \end{center}
 
-Есть три взгляда на то, что такое локальная наблюдаемая.
+Однако такие конфигурации могут вырождаться. Например, вырождение происходит, когда на сфере (т.е. на $\mathbb{CP}^1$) отмечены четыре точки, и две из них стремятся друг к другу (<<сталкиваются>>). В таком случае, как известно, происходит раздутие, и все остальные точки выглядят бесконечно удалёнными.
 
-Согласно Фейнману, локальная наблюдаемая --- некоторая функция от значений полей и их производных в точке $x_0$.
-
-Согласно Полякову, локальная наблюдаемая --- некоторый предел решёточных статсумм.
-
-Согласно Сигалу, локальная наблюдаемая получается стягиванием окружности в точку:
-
-\begin{center}
-\begin{tikzpicture}
-
-
-\fill[cyan!10] (4,0) rectangle (0,3);
-
-\fill[cyan!10] (0.11,3.4) arc (-175:-5:1.9cm and 0.6cm) -- (3.89,2.45) -- (0.11,2.45) -- cycle;
-\fill[cyan!10] (3.89,-0.4) arc (5:175:1.9cm and 0.6cm) -- (0.11,0.55) -- (3.89,0.55) -- cycle;
-
-	\draw[thick,dashed,fill=white] (4,3) ellipse (0.166 and 0.5);% right top ellipse
-	\draw[thick,fill=white] (0,3) ellipse (0.166 and 0.5);% left top ellipse
-	\draw[thick,fill=white] (4,0) ellipse (0.166 and 0.5);% right bottom ellipse
-	\draw[thick,fill=white] (0,0) ellipse (0.166 and 0.5);% left bottom ellipse
-\draw[thick,fill=white] (-0.1,0.4) arc (-45:45:1cm and 1.55cm); % left arc
-\draw[thick,fill=white] (3.89,-0.4) arc (5:175:1.9cm and 0.6cm); % bottom arc
-\draw[thick,fill=white] (4.1,2.6) arc (135:225:1cm and 1.55cm); % right arc
-\draw[thick,fill=white] (0.11,3.4) arc (-175:-5:1.9cm and 0.6cm); % top arc
-
-
-%\draw[thick] (3.26,3.44) -- (3.76,4.64);
-%\draw[thick] (4,2.5) -- (4.5,3.7);
-
-\draw[thick] (4,3.5) -- (7,3);
-\draw[thick] (4,2.5) -- (7,3);
-
-	\draw[thick,dashed,fill=white] (4.6,3) ellipse (0.133 and 0.4);
-	\draw[thick,dashed,fill=white] (5.2,3) ellipse (0.100 and 0.3);
-	\draw[thick,dashed,fill=white] (5.8,3) ellipse (0.066 and 0.2);
-	\draw[thick,dashed,fill=white] (6.4,3) ellipse (0.033 and 0.1);
-
-
-%	\draw[thick,fill=white, dashed] (4,3) ellipse (0.166 and 0.5);
-
-\end{tikzpicture}
-\end{center}
-
-
-
-\footnotesize{}
-
-Если угодно, здесь возможна такая аналогия. <<Поляковский>> взгляд на число Эйлера --- число Эйлера $e$ есть предел следующей последовательности: $$e = \lim\limits_{n \to \infty} \Big(1 + \frac{1}{n} \Big)^n$$
-
-<<Сигаловский>> же взгляд --- решите уравнение $f'(x) = f(x)$ как хотите (рецепт не предоставляется), и когда вы его решите (любым из способов), окажется, что $$e = \frac{f(1)}{f(0)}.$$
-
-\normalsize{}
-
-\subsection{Пока не пережали}
-
-Пока не пережали, была сфера. Все точки --- $\Phi$, и только одна --- $\tilde \Phi$:
+Наглядно это представить себе можно в терминах пережатий. До пережатия есть, скажем, сфера и некоторое количество отмеченных точек на ней; одна из отмеченных точек --- $\tilde \Phi$, остальные --- $\Phi$.
 
 \begin{center}
  \begin{tikzpicture}
@@ -1516,7 +1514,7 @@ cross/.default={6pt}}
 	\end{tikzpicture}
 \end{center}
 
-После того, как пережали,
+После пережатия
 
 
 \begin{center}
@@ -1552,7 +1550,130 @@ cross/.default={6pt}}
 
 левая половина стала для правой наблюдаемой типа $\Phi$ (бесконечно далёкой, похожей на точку). Правая половина стала для левой наблюдаемой типа $\tilde \Phi$ (тоже бесконечно далёкой и похожей на точку).
 
+
+\subsection{Подход Сигала к квантовой теории поля}
+
+Есть три взгляда на то, что такое локальная наблюдаемая.
+
+Согласно Фейнману, локальная наблюдаемая --- некоторая функция от значений полей и их производных в точке $x_0$.
+
+Согласно Полякову, локальная наблюдаемая --- некоторый предел решёточных статсумм.
+
+Согласно Сигалу, локальная наблюдаемая получается как предел оператора, стоящего на месте выреза, при стягивании выреза в точку:
+
+\begin{center}
+\begin{tikzpicture}
+
+
+\fill[cyan!10] (4,0) rectangle (0,3);
+
+\fill[cyan!10] (0.11,3.4) arc (-175:-5:1.9cm and 0.6cm) -- (3.89,2.45) -- (0.11,2.45) -- cycle;
+\fill[cyan!10] (3.89,-0.4) arc (5:175:1.9cm and 0.6cm) -- (0.11,0.55) -- (3.89,0.55) -- cycle;
+
+	\draw[thick,dashed,fill=white] (4,3) ellipse (0.166 and 0.5);% right top ellipse
+	\draw[thick,fill=white] (0,3) ellipse (0.166 and 0.5);% left top ellipse
+	\draw[thick,fill=white] (4,0) ellipse (0.166 and 0.5);% right bottom ellipse
+	\draw[thick,fill=white] (0,0) ellipse (0.166 and 0.5);% left bottom ellipse
+\draw[thick,fill=white] (-0.1,0.4) arc (-45:45:1cm and 1.55cm); % left arc
+\draw[thick,fill=white] (3.89,-0.4) arc (5:175:1.9cm and 0.6cm); % bottom arc
+\draw[thick,fill=white] (4.1,2.6) arc (135:225:1cm and 1.55cm); % right arc
+\draw[thick,fill=white] (0.11,3.4) arc (-175:-5:1.9cm and 0.6cm); % top arc
+
+
+%\draw[thick] (3.26,3.44) -- (3.76,4.64);
+%\draw[thick] (4,2.5) -- (4.5,3.7);
+
+\draw[thick] (4,3.5) -- (7,3);
+\draw[thick] (4,2.5) -- (7,3);
+
+	\draw[thick,dashed,fill=white] (4.6,3) ellipse (0.133 and 0.4);
+	\draw[thick,dashed,fill=white] (5.2,3) ellipse (0.100 and 0.3);
+	\draw[thick,dashed,fill=white] (5.8,3) ellipse (0.066 and 0.2);
+	\draw[thick,dashed,fill=white] (6.4,3) ellipse (0.033 and 0.1);
+
+
+\draw (4.25,2.4) node[right=1pt,below=1pt] {$r_{1n}$};
+\draw (4.7,2.6) node[right=1pt,below=1pt] {$r_{2n}$};
+\draw (6.4,2.8) node[right=1pt,below=1pt] {$r_{mn}$};
+
+\draw (4,3.5) node[right=1pt,above=1pt] {$\psi_{1n}$};
+\draw (4.7,3.4) node[right=1pt,above=1pt] {$\psi_{2n}$};
+\draw (6.4,3.2) node[right=1pt,above=1pt] {$\psi_{mn}$};
+
+\draw (9.5,1.5) node {\text{Необходимо построить такое} $\psi_{mn}$,};
+
+\draw (9.5,1) node {\text{чтобы предел} $V_n := \lim\limits_{m \to \infty} \psi_{mn}$ \text{существовал и был ненулевым.}};
+
+\end{tikzpicture}
+\end{center}
+
+Если такие операторы $V_1, ..., V_n$ существуют, то на такой поверхности $\Sigma$ определён <<основной объект>> $I$:
+
+\be I^{(k,l)} = \langle  V_1 (z_1) ... V_n (z_n) \int\limits_{\Sigma} G \cdot \mu^{(1)} ... \int\limits_{\Sigma} G \cdot \mu^{(k)} \int\limits_{\Sigma} \bar G \cdot \bar \mu^{(1)} \int\limits_{\Sigma} \bar G \cdot \bar \mu^{(l)}                          \rangle   \ee
+
+Главное уравнение --- аксиома разрезания:
+
+\begin{center}
+\begin{tikzpicture}
+
+%\fill[cyan!10] (-0.1,0.4) arc (-45:45:1cm and 1.55cm) arc (-95:40:0.166cm and 0.5cm) arc (-175:-5:2.0cm and 0.53cm) arc (140:275:0.166cm and 0.5cm) arc (135:225:1cm and 1.55cm) arc (85:220:0.166cm and 0.5cm) arc (5:175:2.0cm and 0.53cm) arc (-40:95:0.166cm and 0.5cm);
+
+\fill[cyan!10] (4,0) rectangle (0,3);
+
+\fill[cyan!10] (0.11,3.4) arc (-175:-5:1.9cm and 0.6cm) -- (3.89,2.45) -- (0.11,2.45) -- cycle;
+\fill[cyan!10] (3.89,-0.4) arc (5:175:1.9cm and 0.6cm) -- (0.11,0.55) -- (3.89,0.55) -- cycle;
+
+%	\draw[dashed,color=gray] (0,0) arc (-90:90:0.5 and 1.5);% right half of the left ellipse
+%	\draw[semithick] (0,0) -- (4,1);% bottom line
+%	\draw[semithick] (0,3) -- (4,2);% top line
+%	\draw[semithick] (0,0) arc (270:90:0.5 and 1.5);% left half of the left ellipse
+	\draw[thick,fill=white] (4,3) ellipse (0.166 and 0.5);% right top ellipse
+	\draw[thick,fill=white] (0,3) ellipse (0.166 and 0.5);% left top ellipse
+	\draw[thick,fill=white] (4,0) ellipse (0.166 and 0.5);% right bottom ellipse
+	\draw[thick,fill=white] (0,0) ellipse (0.166 and 0.5);% left bottom ellipse
+\draw[thick,fill=white] (-0.1,0.4) arc (-45:45:1cm and 1.55cm); % left arc
+\draw[thick,fill=white] (3.89,-0.4) arc (5:175:1.9cm and 0.6cm); % bottom arc
+\draw[thick,fill=white] (4.1,2.6) arc (135:225:1cm and 1.55cm); % right arc
+\draw[thick,fill=white] (0.11,3.4) arc (-175:-5:1.9cm and 0.6cm); % top arc
+
+
+  \draw (0.75,1.5) node {{\textcolor[rgb]{1,0,0}{$I_1$}}};
+    \draw (2.75,1.5) node {{\textcolor[rgb]{0,1,0}{$I_2$}}};
+
+%\draw[dashed,thick,color=gray] (1.5,1.5) ellipse (0.1cm and 1.37cm);
+
+\draw[dashed,thick,color=red] (-0.5,4) rectangle (1.4,-1);
+\draw[dashed,thick,color=green] (1.6,4) rectangle (4.6,-1);
+%\draw[dashed,thick,color=black] (-1.5,4.5) rectangle (4.9,-1.5);
+
+\draw (8,1.5) node {$I = I_2 \circ I_1$};
+
+\end{tikzpicture}
+\end{center}
+
+
+\footnotesize{}
+
+Если угодно, здесь возможна такая аналогия. <<Поляковский>> взгляд на число Эйлера --- число Эйлера $e$ есть предел следующей последовательности: $$e = \lim\limits_{n \to \infty} \Big(1 + \frac{1}{n} \Big)^n$$
+
+<<Сигаловский>> же взгляд --- решите уравнение $f'(x) = f(x)$ как хотите (рецепт не предоставляется), и когда вы его решите (любым из способов), окажется, что $$e = \frac{f(1)}{f(0)}.$$
+
+\normalsize{}
+
 \subsection{Постановка задачи о деформационном квантовании}
+
+
+
+По-видимому, в поисках пертурбативной некоммутативной геометрии Концевич в 1997 поставил задачу деформации коммутативных ассоциативных алгебр в классе ассоциативных. Более точно, он поставил задачу найти такое умножение $m_{\bullet} (f_1, f_2)$, которое бы обладало тремя следующими свойствами:
+
+\begin{enumerate}
+  \item $m_0 (f_1, f_2) = f_1 f_2$
+  \item $\frac{\partial m}{\partial \hbar}\Bigg|_{\hbar \to 0} = \{ f_1, f_2\}^{\pi} := \pi^{ij} (x) \frac{\p f_1}{\p x^i} \frac{\p f_2}{\p x^j}$
+  \item $m_{\bullet}$ ассоциативно.
+\end{enumerate}
+
+
+В терминах дисков с отмеченными точками на границе, одна из которых является точкой <<выхода>> ($\delta$-формой), исходное умножение $m_0$ (то, которое мы хотим деформировать) есть
 
 \begin{center}
  \begin{tikzpicture}
@@ -1591,7 +1712,11 @@ cross/.default={6pt}}
 
 \draw (3,0) node {\Huge{=}};
 
-\draw (5,0) node {$(f_1 \cdot f_2) (x_0)$};
+\draw (11.5,0) node {$(f_1 \cdot f_2) (x_0)$};
+
+\draw (10,0) node {\Huge{=}};
+
+\draw (6.5,0) node {$\int Dp Dx e^{\int p dx} f_1 (x) f_2 (x) \delta(x-x_0)$};
 
 %\filldraw [black] (0,0) circle (2pt);
 %\draw (0,0) node[below=1pt] {$0$};
@@ -1603,20 +1728,12 @@ cross/.default={6pt}}
 	\end{tikzpicture}
 \end{center}
 
-По-видимому, в поисках пертурбативной некоммутативной геометрии Концевич в 1997 поставил задачу деформации коммутативных ассоциативных алгебр в классе ассоциативных. Более точно, он поставил задачу найти такое умножение $m_{\bullet} (f_1, f_2)$, которое бы обладало тремя следующими свойствами:
+Поначалу казалось, что хорошим кандидатом является скобка Мояла: $$f_1 * f_2 = e^{\hbar \pi^{ij} \frac{\p}{\p x^i} \frac{\p}{\p y^j}} f_1 (x) f_2 (y)\Big|_{y=x} = \int Dp Dx e^{\int pdx + \pi^{ij} p_i p_j} f_1(x) f_2 (x) \delta (x-x_0)$$
 
-\begin{enumerate}
-  \item $m_0 (f_1, f_2) = f_1 f_2$
-  \item $\frac{\partial m}{\partial \hbar}\Bigg|_{\hbar \to 0} = \{ f_1, f_2\}^{\pi} := \pi^{ij} (x) \frac{\p f_1}{\p x^i} \frac{\p f_2}{\p x^j}$
-  \item $m_{\bullet}$ ассоциативно (??)
-\end{enumerate}
-
-Поначалу казалось, что хорошим кандидатом является скобка Мояла: $$f_1 * f_2 = e^{\hbar \pi^{ij} } f_1 (x) f_2 (y)$$
-
-Однако позже стало понятно, что есть ряд моментов\que{что это за моменты?}, ввиду которых она не годится.
+Однако позже стало понятно, что есть ряд моментов, ввиду которых она не годится. Например, при попытке продолжить $\pi^{ij}$ до $\pi^{ij} (x)$ теряется ассоциативность.\que{Раскрыть.}
 
 
-Причина ассоциативности:
+Размышлять в терминах дисков с отмеченными точками на границе удобно тем, что тогда ассоциативность получает простую геометрическую интерпретацию:
 
 
 \begin{center}
@@ -1790,7 +1907,7 @@ cross/.default={6pt}}
 
 \subsection{Программа}
 
-КТП буквально в фейнмановской формулировке неприменимо: $\int D\ph$ не определено
+КТП буквально в фейнмановской формулировке неприменима: интеграл по мере $\int D\ph$ не определён. А хотелось бы убрать неопределённость во всех КТП.
 
 \begin{enumerate}
 
@@ -1803,7 +1920,7 @@ cross/.default={6pt}}
 
 \end{enumerate}
 
-Объясним, что такое некоммутативная геометрия. Именно, надо избавить от непрерывной формулировки и рассматривать fuzzy sphere. Это представления спина $j$ алгебры $SU(2)$ (соотношения на генераторы $T^{qcl}$). К ним можно прийти так:
+Объясним, что такое некоммутативная геометрия. Именно, надо избавиться от непрерывной формулировки и рассматривать fuzzy sphere. Это представления спина\que{вот это очень интересно: мы ведь потом $j$ будем стремить к бесконечности. Утверждается, что классическая физика получается в пределе <<спин стремится к бесконечности>>? Что за ерунда?} $j$ алгебры $SU(2)$ (соотношения на генераторы $T^{qcl}$). К ним можно прийти так:
 
 $$\{T_a, T_b\} = \varepsilon_{abc} T_c, \hskip 20 pt T_1^2 + T_2^2 + T_3^2 = j(j+1)$$
 $$T_a^{qcl} = \frac{T^a}{j}$$
@@ -1827,18 +1944,18 @@ $$\{ T^{qcl}_a, T^{qcl}_b \} = \frac{1}{j} \varepsilon_{abc} T_c^{qcl}, \hskip 2
 \begin{center}
  \begin{tikzpicture}
 
-\draw (-2,-1) -- (2,1);
-\draw (-2,1) -- (2,-1);
+\draw (0,-1) -- (4,1);
+\draw (0,1) -- (4,-1);
 
-\draw (0,0) node {$ S = \int \mathcal{L} \big( \ph(x), \partial \ph(x)   \big)   \mu(x) \sqrt{g}$};
+\draw (2,0) node {$ S = \int \mathcal{L} \big( \ph(x), \partial \ph(x)   \big)   \mu(x) \sqrt{g}$};
 
 \begin{scope}[decoration={amplitude=.4mm,
         segment length=2mm,post length=1mm}]
 
-      \draw[decorate,orange,thick] (2.45,0) -- ++(5:3);
+      \draw[decorate,orange,thick] (4.7,0) -- ++(5:3);
     \end{scope}
 
-      \draw (2.45,0) ++(5:3) node[right] {\footnotesize этим заниматься нельзя};
+      \draw (4.7,0) ++(5:3) node[right] {\footnotesize этим заниматься нельзя};
 
 
 	\end{tikzpicture}
@@ -1881,7 +1998,7 @@ $(A \in \Omega^{\bullet} \otimes \mathfrak{g})$
 
 Давайте обсудим чётные размерности:
 
-\be S = \int \hat P_i d\hat X^i + \operatorname{Pol} (\hat P, \hat X) \ee
+\be\label{even} S = \int \operatorname{Tr} \Big( \hat P_i d\hat X^i + \operatorname{Pol} (\hat P, \hat X) \Big) \ee
 
 \footnotesize{}
 Вопрос. Как ввести вместо $\operatorname{Fun}(x)$ дифференциальные формы?
@@ -1894,24 +2011,18 @@ Sample решения, указание. Есть переменные $z^i$, е
 $$z^i \frac{\p}{\p z^i} + \theta^i \frac{\p}{\p \theta^i}$$
 
 \footnotesize{}
-Вопрос. Сделать некоммутативный AKSZ. Сложность в том, чтобы сделать умножение, фигурирующее в действии, некоммутативным:
-
-$$S = \operatorname{Tr} \Big( \hat P_i d\hat X^i + \operatorname{Pol} (\hat P, \hat X)   \Big)$$
+Вопрос. Сделать некоммутативный AKSZ. Сложность в том, чтобы сделать умножение, фигурирующее в действии (\ref{even}), некоммутативным.
 \normalsize{}
 
-С комплекса дифференциальных форм надо поменять комплекс на нечто конечное. Для этого надо заменить $\int \operatorname{Tr}$ на $\operatorname{Str}$:
+С комплекса дифференциальных форм необходимо заменить комплекс на нечто конечное. Для этого надо заменить $\int \operatorname{Tr}$ на $\operatorname{Str}$:
 
-$$S = \operatorname{Str} \Big( \hat P_i d\hat X^i + \operatorname{Pol} (\hat P, \hat X)      \Big), $$
-
-$$\hat X^i \in V \otimes \mathcal{A}, \hat P_i \in V^* \otimes \mathcal{A}$$
+$$S = \operatorname{Str} \Big( \hat P_i d\hat X^i + \operatorname{Pol} (\hat P, \hat X)      \Big), \hskip 20 pt \hat X^i \in V \otimes \mathcal{A}, \hskip 5 pt \hat P_i \in V^* \otimes \mathcal{A}$$
 
 Свойство $\int d(..) = 0$ (повествующее об отсутствии граничных членов) превратится в $\operatorname{Str} [D, \mathcal{A}] = 0$ (как и след от коммутатора, суперслед от суперкоммутатора --- ноль).
 
 $\operatorname{Pol} (\hat P, \hat X)$ --- просто слова от $\hat P$ и $\hat X$ (потому что сейчас мы пытаемся обрисовать некоммутативный AKSZ)
 
 Всё это время мы обсуждали чётномерные случаи. В нечётномерном случае симплектической структуры нет, поэтому одна координата вынужденно коммутативная, а остальные --- некоммутативные.
-
-(с <<к предыдущей разобраться>>)
 
 \subsection{Правильное понимание тетрад, уравнения Эйнштейна через тетрады и фактическое существование кручения}
 
@@ -1927,7 +2038,7 @@ $$(\operatorname{Spin}(n), \mathbb{C}^{2^{n/2}}) \to S$$
 \item тетрадой $e$ называется некоторое (не обязательно невырожденное) отображение $e: T_x \to V_x$
 \end{enumerate}
 
-У нас получаются две связности: $\nabla^V$ и $\nabla^S$.
+Получились две связности на $\operatorname{Spin}(n)$: $\nabla^V$ и $\nabla^S$.
 
 Действие Эйнштейна на самом деле имеет вид:
 
